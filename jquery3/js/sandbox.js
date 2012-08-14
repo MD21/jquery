@@ -16,16 +16,9 @@ $(document).ready(function ()
   $("select").append("<option value = 'Wednessday'>Wednessday</option>");
 
   //Add a new div.module to the page after the last one; put a copy of one of the existing images inside of it.
-  $("div").parent().append("<div>New Div </div>");
+  $("div").eq($("div").length-1).parent().append("<div>New Div </div>");
   $("img").clone(true).appendTo($("div").eq($("div").length-1));
 
 
 });
-
-
-
-
-
-
-
 
