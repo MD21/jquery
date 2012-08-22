@@ -9,7 +9,9 @@ $(document).ready(function ()
   $("li:odd").detach();
 
   //Add another h2 and another paragraph to the last div.module
-  $("div").last().append("<h2>new h2 heading</h2>").append("<p>new paragraph<p>");
+  $("div").last()
+    .append("<h2></h2>").children().last().text("new h2 heading").end().end()
+    .append("<p></p>").children().last().text("new paragraph");
  
   //Add another option to the select element; give the option the value "Wednesday"
   $("select").append("<option ></option>").children().last().text("wednessday").attr("val","wednessday");
