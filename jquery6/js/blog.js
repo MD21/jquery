@@ -2,7 +2,8 @@ $(document).ready(function(){
 
   var $next_time = false;
   
-  $("#blog h3").click(function(){
+  $("#blog h3").click(function(e){
+    e.preventDefault();
     if($next_time)
     {
        $("#blog p.excerpt").slideUp();
@@ -12,6 +13,3 @@ $(document).ready(function(){
       $next_time = $(this).next("p.excerpt").slideDown();
   });
 });
-
-   
-
