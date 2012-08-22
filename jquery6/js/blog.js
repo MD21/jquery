@@ -5,15 +5,13 @@ $(document).ready(function(){
   $("#blog h3").click(function(){
     if($next_time)
     {
-       $("#blog p.excerpt").hide().slideUp();
-       $(this).next("p.excerpt").show().slideDown();
+       $("#blog p.excerpt").slideUp();
+       $(this).next("p.excerpt").slideDown();
     }
     else
-      $next_time = $(this).next("p.excerpt").show().slideDown();
+      $next_time = $(this).next("p.excerpt").slideDown();
   });
 });
 
-
-  
    
 
