@@ -1,4 +1,5 @@
 
+
   var count = 1;
 
   function add_item()
@@ -15,7 +16,11 @@
 
       if($(this).attr("id") ==  $(first_div).attr("id") )
       {  
-         count = $(this).attr("id");
+         if($("div#container div").length == 1)
+           count = 1;
+         else
+           count = $(this).attr("id");
+
          $(this).siblings().css("background-color","orange");
          $(first_div).detach();
         
