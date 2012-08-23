@@ -1,8 +1,10 @@
 $(document).ready(function(){
 
-$("#specials form").after("<div id = special_info> <title></title> <font color = > <span></span> </font> <img src='null'> </div>");
+$("#specials form").after("<div></div>").next("div").attr("id","special_info")
+                                        .append("<title></title>")
+                                        .append("<font></font>").children().last().append("<span></span>").end().end()
+                                        .append("<img>");
 
-//remove submit button
 $("#specials form li.buttons").detach();
 
 
@@ -16,16 +18,16 @@ $("#specials form select").change(function(){
     dataType : 'json',
     cache : true ,
     success : function(json){
-      var day_ite = $(json).attr(day);
+      var day_item = $(json).attr(day);
 
-      $("#special_info title").text($(day_ite).attr("title"));
-      console.log( $("#special_info title"));
+      $("#special_info title").text($(day_item).attr("title"));
+    
        
-      $("#special_info font").attr("color",$(day_ite).attr("color"));
+      $("#special_info font").attr("color",$(day_item).attr("color"));
       
-      $("#special_info span").text($(day_ite).attr("text"));
+      $("#special_info span").text($(day_item).attr("text"));
 
-      $("#special_info img").attr("src",$(day_ite).attr("image"));
+      $("#special_info img").attr("src",$(day_item).attr("image"));
     },
 
     error : function(xhr, status) {
@@ -37,4 +39,3 @@ $("#specials form select").change(function(){
 });
 
 });
-
