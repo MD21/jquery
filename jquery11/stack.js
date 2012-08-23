@@ -3,18 +3,21 @@
 
   function add_item()
   {
-    $("div#container ").prepend("<div></div>").children().first().attr("id",count).text(count++);
+    var div = $("<div />").attr("id",count).text(count++);
+    $("div#container ").prepend(div);
   }
 
   $(document).ready(function(){
 
     $("div#container").delegate("div","click",function(){
 
-      if($(this).attr("id") ==  $("div#container").children().first().attr("id") )
+      var first_div = $("div#container div :first");
+
+      if($(this).attr("id") ==  $(first_div).attr("id") )
       {  
          count = $(this).attr("id");
          $(this).siblings().css("background-color","orange");
-         $("div#container div").first().detach();
+         $(first_div).detach();
         
       }
       else
