@@ -1,9 +1,22 @@
 $(document).ready(function(){
 
-$("#specials form").after("<div></div>").next("div").attr("id","special_info")
-                                        .append("<title></title>")
-                                        .append("<font></font>").children().last().append("<span></span>").end().end()
-                                        .append("<img>");
+
+
+var title = $("<title />");
+
+var font = $("<font />");
+  var span = $("<span />")
+  $(font).append(span);
+
+var image = $("<img />")
+
+var div = $("<div />").attr("id","special_info");
+$(div).append(title);
+$(div).append(font);
+$(div).append(image);
+
+
+$("#specials form").after(div);
 
 $("#specials form li.buttons").detach();
 
