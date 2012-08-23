@@ -1,16 +1,22 @@
 $(document).ready(function(){
 
   //Hide all of the modules.
-  //Create an unordered list element before the first module.
+  $(".module").hide();
 
-  $(".module").hide().first().before("<ul></ul>").prev().text("unordered list");
+  //Create an unordered list element before the first module.
+  ul = $("<ul />").html("unordered list");
+
+  $(".module :first").before(ul);
     
-   // Iterate over the modules using $.fn.each. For each module, use the text of the h2 element as the text for a list item that you add to the 
-   //  unordered list element.
+   // Iterate over the modules using $.fn.each. For each module, use the text of the h2 element as the text for a list item that you add to 
+   // the unordered list element.
    
    $(".module").each(function(){
-      
-   console.log($(this).before("<li></li>").prev().attr("id","added_list_item").text($(this).children().first().text()));
+
+     heading = $(this).children().first().text();
+     li = $("<li />").attr("id","added_list_item").text(heading); 
+
+     $(this).before(li);
     
     });
 
@@ -29,6 +35,6 @@ $(document).ready(function(){
   });
   
   //Finally, show the first tab.
-  $("#added_list_item").next(".module").show();
+  $(".module :first").show();
 
 });
