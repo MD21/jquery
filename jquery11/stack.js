@@ -3,22 +3,19 @@
 
   function add_item()
   {
-    if(count === 1)
-    $("div#container ").append("<div id = "+count+">"+ count++ +"</div>");
-    else
-    $("div#container div:first").before("<div id = "+count+">"+ count++ +"</div>");
+    $("div#container ").prepend("<div></div>").children().first().attr("id",count).text(count++);
   }
 
   $(document).ready(function(){
 
     $("div#container").delegate("div","click",function(){
 
-      console.log($(this).attr("id"));
-      console.log(count-1);
-      if($(this).attr("id") == (count-1))
-      {  $(this).siblings().css("background-color","orange");
-         $("div#container div:first").detach();
-         count--;
+      if($(this).attr("id") ==  $("div#container").children().first().attr("id") )
+      {  
+         count = $(this).attr("id");
+         $(this).siblings().css("background-color","orange");
+         $("div#container div").first().detach();
+        
       }
       else
       {
@@ -26,4 +23,3 @@
       } 
  });
 });
-
