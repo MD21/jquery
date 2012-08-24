@@ -4,7 +4,7 @@ $(document).ready(function(){
   $(".module").hide();
 
   //Create an unordered list element before the first module.
-  ul = $("<ul />").html("unordered list");
+  ul = $("<ul />").html("unordered list").attr("id","ul_before_module");
 
   $(".module :first").before(ul);
     
@@ -13,25 +13,28 @@ $(document).ready(function(){
    
    $(".module").each(function(){
 
-     heading = $(this).children().first().text();
-     li = $("<li />").attr("id","added_list_item").text(heading); 
+     li_id = $(this).attr("id");
+     heading = $(this).children(":header").text();
+     li = $("<li />").attr("id",li_id).text(heading); 
 
-     $(this).before(li);
+     $("#ul_before_module").append(li);
     
     });
 
 
    //Bind a click event to the list item that:
-   $("*#added_list_item").bind('click',function(){
+   $("#ul_before_module li").bind('click',function(){
+  
+   module = $("div#"+$(this).attr("id"));
 
     //Shows the related module, and hides any other modules
-     $(this).next(".module").show().siblings(".module").hide(); 
+     $(module).show().siblings(".module").hide(); 
 
     //Adds a class of "current" to the clicked list item
-    $(this).next(".module").addClass("current");
+    $(module).addClass("current");
 
     //Removes the class "current" from the other list item
-    $(this).next(".module").siblings(".module").removeClass("current");
+    $(module).siblings(".module").removeClass("current");
   });
   
   //Finally, show the first tab.
