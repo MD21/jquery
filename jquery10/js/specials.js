@@ -52,4 +52,3 @@ $("#specials form select").change(function(){
 });
 
 });
-

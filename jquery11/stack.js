@@ -15,10 +15,14 @@
 
       $("div#container").delegate("div:first","click",function(){
 
+
         $("div#container div :first").detach();
         
       });
   
   });
+
+
+
 
 

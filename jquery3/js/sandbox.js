@@ -27,4 +27,3 @@ $(document).ready(function ()
   $(new_div).append(copy_image);
   $("div.module :last").append(new_div);
 });
-
