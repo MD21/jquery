@@ -1,26 +1,34 @@
 $(document).ready(function(){
 
-var slide_show = $("#slideshow").detach();
-$("body").children().eq(0).before(slide_show);
-$("#slideshow").after('<label>Total images are '+$("#slideshow li img").length+
-' and you are viewing image <span class = show_after> </span></label>');
+  var slide_show = $("#slideshow").detach();
 
-$("#slideshow li").fadeOut();
+  $("body").prepend(slide_show);
 
-$("#slideshow li").ready(function slide_show (){
-  $("span.show_after").html($("#slideshow li:eq(0)").children("img").attr("alt"));
+  var label_text = "total images are "+$("#slideshow li img").length+" and you are viewing image ";
+  var label = $("<label />").html(label_text);
+  var span = $("<span />").addClass("show_after");
+  $(label).append(span);
 
-   $("#slideshow li:eq(0)").fadeIn(700).delay(1000).fadeOut(700,function(){  
+  $("#slideshow").after(label);
 
-   $("span.show_after").html($(this).next("li").children("img").attr("alt"));  
-    $(this).next("li").fadeIn(700).delay(1000).fadeOut(700,function(){
-       $("span.show_after").html($(this).next("li").children("img").attr("alt"));
-       $(this).next("li").fadeIn(700).delay(1000).fadeOut(700,function (){
-         setTimeout(slide_show(),10000)});
-    });
+  $("#slideshow li").hide();
+
+  function slideshow(a,img_no)
+  {
+    $(a).fadeIn(700).delay(1000).fadeOut(700);
+    $("span.show_after").text(img_no);
+  }
+
+  $(function(){	
+    var i = 0;
+    setInterval(function(){
+
+      slideshow($("#slideshow li ").eq(i++),i);
+
+      if(i == 3)
+       i = 0;
+    },2405);
   });
-
- });
 
 });
 
