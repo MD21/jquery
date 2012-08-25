@@ -1,7 +1,9 @@
 $(document).ready(function(){
   $("#nav li").hover(
-    function(){ $(this).children().css("display","block"); },
-   function(){ $("#nav li ul").css("display","none"); }
+    function(){ $(this).addClass("hover"); },
+    function(){  $(this).removeClass("hover"); }
   );
 });
+
+
 
