@@ -11,31 +11,23 @@ $(document).ready(function(){
 
   $("#slideshow").after(label);
 
-  $("#slideshow li").fadeOut();
+  $("#slideshow li").hide();
 
-  $("#slideshow li").ready(function slide_show (){
-    
-    var image_name1 = $("#slideshow li :first img").attr("alt");
-    var image_name2 = $("#slideshow li").eq(1).children("img").attr("alt");
-    var image_name3 = $("#slideshow li :last img").attr("alt");
+  function slideshow(a,img_no)
+  {
+    $(a).fadeIn(700).delay(1000).fadeOut(700);
+    $("span.show_after").text(img_no);
+  }
 
-    $("span.show_after").html(image_name1);
+  $(function(){  
+    var i = 0;
+    setInterval(function(){
 
-    $("#slideshow li").first().fadeIn(700).delay(1000).fadeOut(700,function(){  
+      slideshow($("#slideshow li ").eq(i++),i);
 
-      $("span.show_after").html(image_name2);  
-      $(this).next("li").fadeIn(700).delay(1000).fadeOut(700,function(){
-
-        $("span.show_after").html(image_name3);
-        $(this).next("li").fadeIn(700).delay(1000).fadeOut(700,function (){
-
-            setTimeout(slide_show(),10000)
-        });
-
-      });
-
-    });
-
+      if(i == 3)
+       i = 0;
+    },2405);
   });
 
 });
