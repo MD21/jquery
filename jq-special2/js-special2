@@ -1,0 +1,61 @@
+<html>
+<head>
+
+        <script src="lib/jquery.js"></script>
+	<script src="ui/jquery.ui.core.js"></script>
+	<script src="ui/jquery.ui.widget.js"></script>
+	<script src="ui/jquery.ui.mouse.js"></script>
+	<script src="ui/jquery.ui.draggable.js"></script>
+	<script src="ui/jquery.ui.droppable.js"></script>
+	<script src ="emp_role.js"></script>
+	<LINK href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+
+<body >
+  <div id ="task">
+	
+    <div id = roles >
+
+      <ul>ROLES
+        <li>
+          <ul id = ror>ROR 
+          </ul>
+          <ul id = js>JS/Jquery
+          </ul>
+          <ul id = android>Andriod
+          </ul>
+          <ul id = ios>iOS
+          </ul>
+        </li>
+     </ul>
+   </div>
+		
+   <div id = employees >
+			
+     <ul>  employees        
+      <li class = "ui-draggable">Akhil</li>
+      <li class = "ui-draggable">Hk</li>
+      <li class = "ui-draggable">Rd</li>
+      <li class = "ui-draggable">Alok</li>
+      <li class = "ui-draggable">Waseem</li>
+     </ul>
+   </div>
+
+   <div id = todos >
+           
+      <ul>ToDos
+       <li>
+         <ul id = ror >ROR  <img src = "images/minus.png" /></ul>
+         <ul id = js >JS/Jquery<img src = "images/minus.png" /></ul>
+         <ul id = android >Andriod<img src = "images/minus.png" /></ul>
+         <ul id = ios >iOS<img src = "images/minus.png" /></ul>
+
+       </li> 
+      </ul>
+   </div>
+</div>
+</body>
+</html>
