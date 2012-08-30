@@ -189,14 +189,15 @@ body {
 }
 
 #nav li.hover ul {
-	position: absolute;
-	top: 50px;
-	left: 0;
-	width: 200px;
+	
 	display: inline;
-	margin: 0;
+	
 }
-
+#nav li.hover ul.visible {
+	
+	display: block;
+	
+}
 
 
 
