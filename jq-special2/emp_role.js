@@ -18,9 +18,6 @@ $(document).ready(function() {
       if(i == 0 ){
         $( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
         add_todo(ui.draggable.text(),id);
-   var scroll_at = $("#roles ul:last").offset().top ;
-   console.log(scroll_at);
- 
        }
      }
    });
@@ -85,8 +82,4 @@ $(document).ready(function() {
       $(this).children("img").detach();
     }
   });
-
-
-
-
 });
