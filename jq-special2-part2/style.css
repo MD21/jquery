@@ -1,0 +1,129 @@
+
+ #roles
+ {
+  float:left;
+  width: 150px;
+  margin-left:20px;
+ }
+
+ #employees
+ {
+  position:fixed;
+  float:left;
+  width:150px;
+  left:275px;
+  top:70px;
+
+
+ }
+
+ #todos
+ {
+  float: left;
+  margin-left:360px;
+ }
+
+ #todos ul
+ {
+   width:700px;
+ }
+
+ #emp_name 
+ {
+  display:block;
+  height:40px;
+  width:170px;
+  border:1px solid;
+  margin-left:10px;
+  margin-top:10px;
+  text-align:center;
+  padding-top:10px;
+ }
+
+ #todo_box
+ {
+   display:block;
+   height:90px;
+   width:500px;
+   border:1px solid;
+   margin-left:220px;
+   margin-top:-52px;
+   margin-bottom:10px; 
+   text-align:center;
+ }
+
+
+ ul
+ {
+   list-style-type:none;
+   border:1px solid black;
+   width:150px;
+   text-align:center;
+ }
+
+ ul img
+ { 
+   height:20px;
+   width:20px;
+ }
+
+ #todos ul img
+ {
+  float:right;
+ }
+
+ #add_todo
+ {
+   vertical-align:-45px;
+ }
+        
+ #roles #employees img
+ {
+   margin-left:-10px;
+ }
+
+ ul li
+ {
+  border-top:1px solid black;
+  margin-left:-40px;
+  text-align:left;
+ }
+       
+ div div
+ {
+  margin-top: 1px;
+  display: block;
+  padding-top: 0px;
+  padding-bottom: 0px;
+ }      
+
+
+ #new_todo
+ {
+   width:340px;
+   padding-top:5px;
+   margin-left:5px;
+ }
+
+#img_todo
+{
+  margin-top:-20px;
+  height:30px;
+  width:60px;
+  margin-left:360px;
+}
+ 
+ #todos ul li div div img
+ {
+  margin:0px;
+  float:left;
+ }
+
+ .add, .delete,.edit
+{
+height:20px;
+width:20px;
+
+
+}
+ 
