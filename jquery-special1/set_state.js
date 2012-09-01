@@ -20,20 +20,10 @@ $(document).ready(function(){
   if(name[1] != "undefined"){
     var node = $(".accordion a:contains("+name[1]+")");
     $(node).css("background-color","orange");
- 
-  while(true)
-  {
-
-   var next = $(node).parent().parent();
-
-   if($(next).attr("class") != 'accordion')
-   break;
-
-   $(next).siblings( $("a")).addClass(" active")  ;
-
-   node = next;
+    
+    var parent_li = $(node).parents("ul");
+    $(parent_li).siblings("a").addClass('active'); 
   }
- }
 
 });
 
