@@ -12,7 +12,7 @@ $(document).ready(function() {
     drop: function( event, ui ) {
       var id = $(this).attr("id");
       var name = ui.draggable.text();
-      var i = $(this).children("div:contains("+name+")").length;
+      var i = $(this).children("li:contains("+name+")").length;
       var cross = $("<img />").attr("src","images/delete.png").css("display","none");
       var emp = $("<li />").addClass('employee');
       if(i == 0 ){
