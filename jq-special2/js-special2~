@@ -2,15 +2,13 @@
 <head>
 
         <script src="lib/jquery.js"></script>
-	<script src ="lib/jq.editinplace.js"></script>
 	<script src="ui/jquery.ui.core.js"></script>
 	<script src="ui/jquery.ui.widget.js"></script>
 	<script src="ui/jquery.ui.mouse.js"></script>
 	<script src="ui/jquery.ui.draggable.js"></script>
 	<script src="ui/jquery.ui.droppable.js"></script>
-        
 	<script src ="emp_role.js"></script>
-
+	<script src ="lib/jq.editinplace.js"></script>
 
 	<LINK href="style.css" rel="stylesheet" type="text/css">
 
