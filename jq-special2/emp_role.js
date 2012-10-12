@@ -23,13 +23,16 @@ $(document).ready(function() {
     }
   });
     
-  $("#todos img").click(function(e){
+  $("#todos li>ul img").click(function(e){
     var li_display = $(this).siblings("li");
-
-    if($(li_display).css('display') == 'none')
-      $(li_display).slideDown();
-    else
+    if($(li_display).css('display') == 'none'){
+        $(li_display).slideDown();
+        $(this).attr("src","images/minus.png")
+      }
+    else{
       $(li_display).slideUp();  
+      $(this).attr("src","images/add.png")
+    }
   });
 
 

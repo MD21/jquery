@@ -52,10 +52,10 @@
            
       <ul>ToDos
        <li>
-         <ul id = ror >ROR  <img src = "images/minus.png" /></ul>
-         <ul id = js >JS/Jquery<img src = "images/minus.png" /></ul>
-         <ul id = android >Andriod<img src = "images/minus.png" /></ul>
-         <ul id = ios >iOS<img src = "images/minus.png" /></ul>
+         <ul id = ror >ROR  <img src = "images/add.png" /></ul>
+         <ul id = js >JS/Jquery<img src = "images/add.png" /></ul>
+         <ul id = android >Andriod<img src = "images/add.png" /></ul>
+         <ul id = ios >iOS<img src = "images/add.png" /></ul>
 
        </li> 
       </ul>
