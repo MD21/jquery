@@ -1,13 +1,13 @@
 function search_todo()
   {
     var todo_no = parseInt($("#search").val(),10);    
-    $("#todos ul li ul li").css("display","none"); 
+    $("#todos ul img#collapse").trigger("click"); 
     $("#todos ul li ul li").each(function(index){
-    var len = $(this).children("div#todo_box").children().length;
-    if(len == (todo_no+1))
+    var len = $(this).children("div#todo_box").children("div#todo_container").length;
+    if(len == todo_no)
     {
-       $(this).slideDown().siblings("li").slideDown();
-       $(this).children("div#emp_name").fadeTo(1500, 0).fadeTo(1500, 1.0);
+       $(this).slideDown();
+       $(this).children("div#emp_name").fadeTo(1500,0.1, 0).fadeTo(1500, 1.0);
      }  
   });
 }
@@ -110,14 +110,10 @@ $(document).ready(function(){
       var name = $(li).text();
       var todo_div = $("#todos div#emp_name:contains('"+name+"') ");
       var todo_li = $(todo_div).parent();
-
-      var roles_div = $("#roles ul>li>ul>li:contains('"+name+"') ");
-      var roles_li = $(roles_div).parent();
-
-
+      var roles_div = $("#roles li.employee:contains('"+name+"') ");
       $(li).detach();
       $(todo_li).detach();
-      $(roles_li).detach();
+      $(roles_div).detach();
       }
   });
 });
