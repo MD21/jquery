@@ -1,0 +1,20 @@
+div {
+	display: inline-block;
+}
+
+#check{
+	width : 100px;
+
+}
+#products{
+	width: 1000px;
+	
+	margin-left : 5%;
+	border: 1px solid;
+
+}
+
+img {
+	height: 100px;
+	width: 100px;
+}
