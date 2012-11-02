@@ -2,8 +2,7 @@ search = [];
 color = [];
 brand = [];
 filter_sold = [];
-filter_sold[0] = "all";
-filter_sold[1] = "available";
+filter_sold[0] = "available";
 
 function show_product(list_product){
   for(var i = 0 ; i < list_product.length; i++) {
@@ -29,52 +28,64 @@ function show_product(list_product){
 function show_checklist(){
   count = 0
   $.each(search,function(ind, arr){    
-    var type_in = ind == 0 ? "radio" : "checkbox"
     count++;
-    var option = $("<p />").attr("id",count);
+    var option = $("<div />").attr("id",count);
     $.each(arr,function(pos,value){         
-      option.append($("<input/>").attr("type", type_in).attr("id",count).attr("name",type_in).text(value));
+      var check_box = $("<input/>").attr("type", "checkbox").attr("id",count)      
+      if(value.indexOf("BRAND") > 0) {
+        check_box.text(value.substring(6));
+      }
+      else {
+        check_box.text(value);
+      }
+      option.append(check_box);
       option.append(value + "<br />")    
     });
+    option.append("<br />");
     option.appendTo($("#check"));
   }); 
 }
 
-function filter_product(clicked,sold_out){
-  
-  if(sold_out == 1){
-    $("#products img").hide();
-    $("#check #1 :input").each(function(index,element) {
-      if($(element).is(':checked')){
-        if($(element).text() == "available") { 
-          $("#products img."+$(element).text()).show();
-        }
-        else {
-          $("#products img").show();
-        }
-      }      
-    });
-  }
-  else{
-    if ($("input[type = checkbox]:checked").length){
-      $("#products img").hide();
-      $("#check #2 :input").each(function(index,element){
-        if($(element).is(':checked')){
-          $("#products img."+$(element).text()).show();          
-        }        
-        $("#check #3 :input").each(function(index2,element2){
-          if($(element2).is(':checked')) {
-            $("#products img."+($(element2).text()).substring(6)).show();
+function filter_product(clicked){    
+  $("#products img").show();
+  $("img").removeClass("filtered");
+  if($("#check :input").is(":checked")) {    
+    $("#check div").each(function(ind,block){
+      checked_list = [];
+      $(block).children(":input").each(function(index,element){
+        var filter = $(element).text();
+        if($(element).is(":checked")) {
+          if(filter.indexOf("BRAND") >= 0) {
+            checked_list.push(filter.substring(6));          
           }
-        });        
-      });           
-    }
-    else{
-      $("#products img").show();
-    }  
-  } 
+          else {
+            checked_list.push(filter);                 
+          }     
+        }        
+      });
+      if(checked_list.length > 0) {
+        filter_image(checked_list);
+      }
+    });  
+  }
 }
 
+function filter_image(filter) {
+  var img_set = $("#products img:visible")
+  var filter_set = $(img_set).each(function(i,image){
+      $(image).removeClass("filtered")
+  });
+  $.each(filter,function(index,element){
+    $.each(filter_set,function(id,image){  
+      if($(image).hasClass(element)){
+        $(image).addClass("filtered");
+      }
+    });    
+  });
+  $("#products img").hide();
+  $("#products img.filtered").show();
+}
+ 
 $(document).ready(function(){
 	$.ajax({
 		url:"pro.json",
